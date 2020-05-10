@@ -8,6 +8,8 @@ server.use(express.json());
 // Endpoints
 server.get('/', (req, res) => res.send('Hello World! My man'));
 
+
+
 server.post('/api/v1/movies', (req, res) => res.status(201).send({ movies: [] }));
 
 server.get('/api/v1/temario/:id', (req, res) => {
@@ -22,16 +24,12 @@ const Users = require('../models/Users');
 
 // CREATE
 server.post('/api/v1/users', (req, res) => {
-  Users.create(req.body)
-    .then(user => res.status(201).send(user))
-    .catch(err => res.status(400).send({ message: 'Error creating user', err }));
+ 
 });
 
 // GET (ALL)
 server.get('/api/v1/users', (req, res) => {
-  Users.find()
-    .then(users => res.status(200).send(users))
-    .catch(err => res.status(404).send({ message: 'Users not found', err }));
+ 
 });
 
 // exportar server para poder requerirlo desde otros archivos

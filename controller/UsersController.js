@@ -1,7 +1,7 @@
 // El indice se encarga de pedir archivos e importarlos
 
 const Users = require('../models/Users');
-
+const {UsersService} = require('../services');
 
 module.exports = {
   create: (req, res) => {
