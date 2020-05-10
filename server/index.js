@@ -6,7 +6,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
 // Endpoints
-server.get('/', (req, res) => res.send('Hello World!'));
+server.get('/', (req, res) => res.send('Hello World! My man'));
 
 server.post('/api/v1/movies', (req, res) => res.status(201).send({ movies: [] }));
 
