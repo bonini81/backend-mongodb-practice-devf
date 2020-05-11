@@ -1,11 +1,8 @@
-const UsersService = require('../models/Users');
+const Users = require('../models/Users');
 
 module.exports = {
-    create: ()=> Users.create()
-
-     find: ()=> Users.find()
-    
-
+    create: (body)=> Users.create(body),
+     find: ()=> Users.find(),
 }
 
 
