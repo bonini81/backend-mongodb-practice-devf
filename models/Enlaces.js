@@ -32,8 +32,8 @@ const enlacesSchema = new Schema({
   
 },
 {
-    date: true,    
- });
+  timestamps: true,
+});
 
 const Enlaces = mongoose.model('Enlaces', enlacesSchema);
 
