@@ -19,6 +19,12 @@ router.patch('/users/:id', UsersController.findByIdAndUpdate);
 router.delete('/users/:id', UsersController.findByIdAndDelete);
 
 
+//SignUp and SignIn personalized Routes
+router.post('/users/signup', UsersController.signup);
+//router.post('/users/login', UsersController.login);
+
+
+
 module.exports = router;
 
 /*
