@@ -19,6 +19,9 @@ router.patch('/users/:id', UsersController.findByIdAndUpdate);
 router.delete('/users/:id', UsersController.findByIdAndDelete);
 
 
+//Routes for SignUp Form
+router.post('/users/signup', UsersController.signup  );
+
 module.exports = router;
 
 /*

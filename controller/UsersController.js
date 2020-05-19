@@ -95,4 +95,17 @@ findByIdAndDelete: async (req, res) => {
 },
 
 
+//User SignUp
+signup: async (req, res) => {
+  try {
+    const user = await UsersService.create(req.body);
+    res.status(201).send(user);
+  }
+  catch (error) {
+    res.status(400).send({ message: 'Error creating user', err });
+  }
+   
+},
+
+
 }
