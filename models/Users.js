@@ -23,6 +23,8 @@ const usersSchema = new Schema({
   email: {
     type: String,
     required: true,
+    //Check that there is no replication
+    unique: true,
   },
 
   password: {
@@ -67,12 +69,7 @@ bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
 
 });
 
-usersSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-      if (err) return cb(err);
-      cb(null, isMatch);
-  });
-};
+
 
 // End Bcrypt Script
 
