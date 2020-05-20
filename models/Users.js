@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const bcrypt = require(bcrypt);
+//Below 2 Bcrypts dependencies
+const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
+// End Bcrypt Dependencies
 
 const usersSchema = new Schema({
 
@@ -21,24 +23,31 @@ const usersSchema = new Schema({
   email: {
     type: String,
     required: true,
+    //Check that there is no replication
+    unique: true,
   },
 
   password: {
-    type: String
+    type: String,
+
   },
 
   is_active: {
     type: Boolean,
     default: true,
   },
+
+
 },
 {
   timestamps: true,
 });
 
 
-/*UserSchema.pre('save', function(next) {
-  const user = this;
+//Bcrypt PassWord Hasher Script
+
+usersSchema.pre('save', function(next) {
+  var user = this;
 
 // only hash the password if it has been modified (or is new)
 if (!user.isModified('password')) return next();
@@ -60,17 +69,11 @@ bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
 
 });
 
-UserSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-      if (err) return cb(err);
-      cb(null, isMatch);
-  });
-};*/
 
+
+// End Bcrypt Script
 
 const Users = mongoose.model('User', usersSchema);
 
-
 module.exports = Users;
-
 

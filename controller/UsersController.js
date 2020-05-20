@@ -95,17 +95,35 @@ findByIdAndDelete: async (req, res) => {
 },
 
 
-//Sign Up
+//User SignUp
 signup: async (req, res) => {
   try {
     const user = await UsersService.create(req.body);
-    res.status(201).send({ message: "Sign Up Succesful!", user });
+    res.status(201).send(user);
   }
   catch (error) {
     res.status(400).send({ message: 'Error creating user', err });
   }
    
 },
+
+
+//Login User 
+
+login: async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await UsersService.findByEmail(email);
+    if (!user) res.status(404).send({ message: 'User not found' });
+    console.log('Yahoo', user); 
+    const isMatch = await UsersService.comparePasswords(password, user.password);
+    if (!isMatch) res.status(400).send({ message: 'Invalid credentials' });
+    res.status(200).send({ message: "step inside, brother" });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ message: 'Error on login', error });
+  }
+}
 
 
 }

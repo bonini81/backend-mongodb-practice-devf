@@ -28,7 +28,12 @@ const enlacesSchema = new Schema({
   is_active: {
     type: Boolean,
     default: true,
-  }
+  },
+
+  //Populate from User
+  added_by: [
+    { type: Schema.Types.ObjectId, ref: 'Users' }
+  ]
   
 },
 {
