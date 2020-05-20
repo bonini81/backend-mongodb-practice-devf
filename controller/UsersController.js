@@ -108,7 +108,7 @@ signup: async (req, res) => {
 },
 
 
-//User Login
+//Login User 
 
 login: async (req, res) => {
   const { email, password } = req.body;
