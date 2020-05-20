@@ -9,7 +9,7 @@ router.post('/users', UsersController.create  );
 //GET (ALL)
 router.get('/users', UsersController.find);
 
-// GET (ONE)
+// GET (ONE!)
 router.get('/users/:id', UsersController.findById);
 router.patch('/users/:id', UsersController.findByIdAndUpdate);
 router.delete('/users/:id', UsersController.findByIdAndDelete);
