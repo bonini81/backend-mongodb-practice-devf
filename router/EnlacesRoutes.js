@@ -7,6 +7,8 @@ const {EnlacesController} = require('../controller');
 //CREATE 
 router.post('/enlaces', EnlacesController.create  );
 
+//GET (ALL)
+router.get('/enlaces', EnlacesController.find );
 
 //GET (ALL)
 router.get('/enlaces', EnlacesController.find );
