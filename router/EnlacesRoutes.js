@@ -10,5 +10,8 @@ router.post('/enlaces', EnlacesController.create  );
 //GET (ALL)
 router.get('/enlaces', EnlacesController.find );
 
+//GET (ALL)
+router.get('/enlaces', EnlacesController.find );
+
 
 module.exports = router;

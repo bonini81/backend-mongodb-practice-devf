@@ -30,4 +30,19 @@ module.exports = {
       
   },
 
+  //GET ALL
+  find: async (req, res) => {
+
+    try {
+      const enlace = await EnlacesService.find();
+      res.status(200).send(enlace);
+    }
+    
+    catch (error) {
+      res.status(404).send({ message: 'Links not found', err });
+    }
+      
+  },
+
+
 }
