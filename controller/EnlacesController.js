@@ -16,7 +16,7 @@ module.exports = {
         
     },
 
-     //GET ALL
+     //GET ALL MAN
   find: async (req, res) => {
 
     try {
